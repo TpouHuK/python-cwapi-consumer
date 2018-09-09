@@ -3,7 +3,7 @@ import json
 import time
 import database
 import threading
-import socket import gethostbyname, create_connection
+from socket import gethostbyname, create_connection
 import logging
 from os import linesep
 from time import sleep
@@ -98,8 +98,8 @@ def connect_to_server():
 
 def check_internet_on():
     try:
-        host = socket.gethostbyname(CHECK_INTERNET)
-        s = socket.create_connection((host, 80), 2)
+        host = gethostbyname(CHECK_INTERNET)
+        s = create_connection((host, 80), 2)
         return True
     except Exception as e:
         logger.warning(e)
