@@ -96,7 +96,7 @@ def connect_to_server():
 
     return channel, connection
 
-def check_internet_on():
+def check_internet():
     try:
         host = gethostbyname(CHECK_INTERNET)
         s = create_connection((host, 80), 2)
@@ -144,7 +144,7 @@ database_update.start()
 
 while True:
     try:
-        while not check_internet_on():
+        while not check_internet():
             sleep(RECONNECT_SEC)
             logger.warning('Internet unreachable')
 
